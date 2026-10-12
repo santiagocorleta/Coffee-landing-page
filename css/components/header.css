@@ -1,0 +1,145 @@
+.header {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.header__container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-logo);
+  color: var(--color-sand);
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.header__link {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  color: var(--color-sand);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: opacity 200ms ease;
+}
+
+.header__link:hover {
+  opacity: 0.8;
+}
+
+.header__link--login {
+  color: var(--color-sand);
+}
+
+.header__search {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-image: url('../../assets/icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.header__toggle-icon {
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-espresso);
+  position: relative;
+  transition: background-color 200ms ease;
+}
+
+.header__toggle-icon::before,
+.header__toggle-icon::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-espresso);
+  transition: transform 200ms ease;
+}
+
+.header__toggle-icon::before {
+  top: -6px;
+}
+
+.header__toggle-icon::after {
+  top: 6px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    top: 20px;
+  }
+
+  .header__container {
+    padding: 0 20px;
+  }
+
+  .header__toggle {
+    display: flex;
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 260px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    background-color: var(--color-bg);
+    padding: 32px;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+    transition: right 300ms ease-in-out;
+  }
+
+  .header__link {
+    color: var(--color-espresso);
+  }
+
+  .header__nav--open {
+    right: 0;
+  }
+}
